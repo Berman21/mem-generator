@@ -14,11 +14,17 @@ function renderGallery() {
 
         elGallery.innerHTML = strHtmls.join('')
     }
-    // elEditor.classList.add('hidden')
-    // elGallery.classList.remove('hidden')
+    elEditor.classList.add('hidden')
+    elGallery.classList.remove('hidden')
+    resizeCanvas()
 }
 
 function onImgSelect(elImg) {
     setImg(elImg)
     renderMeme()
+    const elEditor = document.querySelector('.editor-container')
+    const elGallery = document.querySelector('.gallery-container')
+    elEditor.classList.remove('hidden')
+    elGallery.classList.add('hidden')
+    resizeCanvas()
 }

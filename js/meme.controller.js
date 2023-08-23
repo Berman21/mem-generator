@@ -7,7 +7,7 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
-    resizeCanvas()
+    
 }
 
 function onSetLineTxt(val) {
@@ -16,6 +16,7 @@ function onSetLineTxt(val) {
 }
 
 function renderMeme() {
+    resizeCanvas()
     const memeImg = getImg()
     const { selectedImgId, selectedLineIdx, lines } = getMeme()
     gTxt = lines[selectedLineIdx].txt
