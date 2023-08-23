@@ -26,5 +26,5 @@ function onImgSelect(elImg) {
     const elGallery = document.querySelector('.gallery-container')
     elEditor.classList.remove('hidden')
     elGallery.classList.add('hidden')
-    resizeCanvas()
+    
 }
