@@ -27,10 +27,11 @@
     <main>
 
         <section class="gallery-container">
-            <img src="images/square/1.jpg" alt="" onclick="onSelectImg(this)">
-            <img src="images/ratio/2.jpg" alt="" onclick="onSelectImg(this)">
+
         </section>
 
+
+        
         <section class="editor-container">
 
             <div class="canvas-container">
@@ -41,7 +42,7 @@
             <div class="controls-container">
 
 
-                <input data-trans="line-input" type="text" class="meme-text-input" oninput="onFilterBooks({name:this.value})"
+                <input data-trans="line-input" type="text" class="meme-text-input" oninput="onSetLineTxt(this.value)"
                 placeholder="add a line">
 
             </div>
@@ -55,7 +56,11 @@
         footer
     </footer>
 
-    <script src="js/meme.service.js"></script>
+
+
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>
 

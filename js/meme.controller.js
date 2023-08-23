@@ -1,37 +1,27 @@
 let gElCanvas
 let gCtx
+let gTxt
+
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-
+    renderGallery()
     resizeCanvas()
 }
 
-function onSelectImg(elImg) {
-    renderMeme(elImg)
+function onSetLineTxt(val) {
+    setLineTxt(val)
+    renderMeme()
 }
 
-
-function renderMeme(elImg) {
-    coverCanvasWithImg(elImg)
-    drawText('HI',gElCanvas.width/2,gElCanvas.height/2)
+function renderMeme() {
+    const memeImg = getImg()
+    const { selectedImgId, selectedLineIdx, lines } = getMeme()
+    gTxt = lines[selectedLineIdx].txt
+    coverCanvasWithImg(memeImg)
+    drawText(gTxt, gElCanvas.width / 2, gElCanvas.height / 2)
 }
-
-
-// Lets cover a fixed-width canvas using an img
-// changing the canvas height
-function coverCanvasWithImg(elImg) {
-    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-}
-
-function resizeCanvas() {   // Changing the canvas dimension clears the canvas
-    const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
-  }
-
 
 function drawText(text, x, y) {
     gCtx.lineWidth = 2
@@ -40,7 +30,7 @@ function drawText(text, x, y) {
     gCtx.font = '40px Arial'
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
-  
+
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
-  }
+}
