@@ -1,0 +1,32 @@
+:root {
+    /* pallete */
+    
+    --clrPrimary1: #22252c;
+    --clrPrimaryBase: #383b42;
+    --clrPrimary-1: #fefefe;
+    --clrPrimary-2: #ffffff;
+
+
+    --clrSecondaryBase: 
+    --background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);;
+
+    --clrShare:#1e7cd3;
+    --clrShareShadow:#165c9c;
+    --clrDownload:#8f44bb;
+    --clrDownloadShadow:#632687;
+
+
+    /* layout */
+    --card-layout-margin: 260px;
+    --card-center-margin: 40px;
+
+    --l: 980px;
+    --m: 860px;
+    --s: 600px;
+
+    --headerHeight: 130px;
+
+    --layout-width: 1fr;
+
+    --layout-padding: 20px;
+}

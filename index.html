@@ -4,25 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MemeXt</title>
+    <title>MemeX</title>
     <link rel="stylesheet" href="css/styles.css" />
 
 </head>
 
-<body>
+<body onload="onInit()">
 
-    <header>
-        header
+    <header class="main-header main-layout full">
+        <div class="header-contnet">
+            <div class="logo">MemeX</div>
+            <nav class="main-nav-container">
+                <ul class="main-nav clean-list">
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
+        </div>
     </header>
 
     <main>
 
-        <section>
-            image gallery
+        <section class="gallery-container">
+            
         </section>
 
-        <section>
-            meme editor
+        <section class="editor-container">
+
+            <div class="canvas-container">
+                <canvas width="476" height="400" onclick="onDraw(event)"></canvas>
+            </div>
+
+
+            <div class="controls-container">
+
+
+                <input data-trans="line-input" type="text" class="meme-text-input" oninput="onFilterBooks({name:this.value})"
+                placeholder="add a line">
+
+            </div>
+
+
         </section>
 
     </main>
@@ -31,7 +54,8 @@
         footer
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
 </body>
 
 </html>
