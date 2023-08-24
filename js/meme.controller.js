@@ -1,11 +1,12 @@
 let gElCanvas
 let gCtx
+let gCurrMeme
+let gLines = []
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
-
 }
 
 function onSetLineTxt(val) {
@@ -36,24 +37,30 @@ function onCreateLine() {
 
 function renderMeme() {
     const memeImg = getImg()
-    const { selectedImgI, selectedLineIdx, lines } = getMeme()
-    const { txt, size, color } = lines
+    gCurrMeme = getMeme()
+    const lines = gCurrMeme.lines
+    const txtSpace = 25
     coverCanvasWithImg(memeImg)
 
-    lines.forEach(lines => {
-        const { txt, size, color } = lines
-        drawText(txt, color, size, gElCanvas.width / 2, gElCanvas.height / 2)
+    lines.forEach((line, idx) => {
+        console.log('line:', line);
+        console.log('idx:', idx);
+        line.x = gElCanvas.width / 2
+        line.y = (idx + 1) * (line.size + txtSpace)
+        drawText(line.txt, line.color, line.size, line.x, line.y)
     })
 }
 
 function onSwitch() {
+    const currIdx = gCurrMeme.selectedLineIdx
+    const lines = gCurrMeme.lines
+    if(currIdx > lines.length+1)currIdx = 0
+    const {txt, color, size, x, y} = lines[currIdx]
+    renderMeme()
+    drawBorder(x,y,x ,y )
+    
 
 }
-
-
-
-
-
 
 function drawText(text, color, size, x, y) {
     gCtx.lineWidth = 2
@@ -65,14 +72,14 @@ function drawText(text, color, size, x, y) {
 
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
-    drawRect(x, y,size)
-    console.log(x, y);
+    // console.log(gCtx);
+    console.log(x-text.length, y);
 }
 
-function drawRect(x, y,size) {
+function drawBorder(x, y, xEnd = 100, yEnd = 100) {
     gCtx.strokeStyle = 'white'
-    gCtx.strokeRect(x, y, 150, size)
-  }
+    gCtx.strokeRect(x, y, xEnd, yEnd)
+}
 
 function downloadCanvas(elLink) {
     const dataUrl = gElCanvas.toDataURL()

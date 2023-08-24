@@ -1,7 +1,7 @@
 
 function renderGallery() {
     var images = getImages()
-    // const elEditor = document.querySelector('.editor-container')
+    const elEditor = document.querySelector('.editor-container')
     const elMainGallery = document.querySelector('.main-gallery-container')
     const elGallery = document.querySelector('.gallery-container')
     if (!images.length) {
@@ -15,7 +15,7 @@ function renderGallery() {
 
         elGallery.innerHTML = strHtmls.join('')
     }
-    // elEditor.classList.add('hidden')
+    elEditor.classList.add('hidden')
     elMainGallery.classList.remove('hidden')
     // resizeCanvas()
 }
@@ -27,5 +27,5 @@ function onImgSelect(elImg) {
     const elMainGallery = document.querySelector('.main-gallery-container')
     elEditor.classList.remove('hidden')
     elMainGallery.classList.add('hidden')
-
+    resizeCanvas()
 }
