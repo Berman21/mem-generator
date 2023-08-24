@@ -3,12 +3,21 @@ html{
 }
 
 body {
-    text-align: center;
+    /* text-align: center; */
     background-color: var(--clrPrimary1);
     font-family: Poppins,sans-serif;
+
+    padding: 15px;
 }
 
 canvas {
     background-color: white;
     border: 1px solid rgb(255, 2, 2);
+}
+
+img {
+    float: left;
+    width:  200px;
+    height: 200px;
+    object-fit: cover;
 }

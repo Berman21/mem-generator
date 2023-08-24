@@ -1,5 +1,13 @@
 var gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['funny', 'cat'] },
+    { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
+    { id: 1, url: 'images/1.jpg', keywords: ['funny', 'cat'] },
+    { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
+    { id: 1, url: 'images/1.jpg', keywords: ['funny', 'cat'] },
+    { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
+    { id: 1, url: 'images/1.jpg', keywords: ['funny', 'cat'] },
+    { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
+    { id: 1, url: 'images/1.jpg', keywords: ['funny', 'cat'] },
     { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] }
 ]
 

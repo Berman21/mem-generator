@@ -16,7 +16,7 @@ function onSetLineTxt(val) {
 }
 
 function renderMeme() {
-    resizeCanvas()
+    // resizeCanvas()
     const memeImg = getImg()
     const { selectedImgId, selectedLineIdx, lines } = getMeme()
     gTxt = lines[selectedLineIdx].txt
