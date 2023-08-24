@@ -59,6 +59,12 @@
                 <input data-trans="line-input" type="text" class="meme-text-input" oninput="onSetLineTxt(this.value)"
                     placeholder="add a line">
 
+                <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
+
+                <input type="color" class="color-picker" oninput="onSetLineColor(this.value)">
+                <button onclick="onIncreaseFontSize()">A+</button>
+                <button onclick="onDecreaseFontSize()">A-</button>
+                <button onclick="onCreateLine()">+</button>
             </div>
 
 

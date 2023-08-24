@@ -20,28 +20,57 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
-            color: 'red'
+            color: 'red',
         }
     ]
 }
 
-function setImg(img){
+
+
+function setImg(img) {
     gImgs = img
 }
 
-function getImg(){
+function getImg() {
     return gImgs
 }
 
-function getImages(){
+function getImages() {
     return gImgs
 }
 
 function getMeme() {
+
     return gMeme
 }
 
-function setLineTxt(txt){
+
+
+function setLineTxt(txt) {
     gMeme.lines[0].txt = txt
-    console.log('Service gMeme text:',gMeme.lines[0].txt);
+    console.log('Service gMeme text:', gMeme.lines[0].txt);
+}
+
+function setLineColor(val) {
+    gMeme.lines[0].color = val
+}
+
+function increaseFontSize() {
+    gMeme.lines[0].size++
+    console.log('Service gMeme size:', gMeme.lines[0].size);
+}
+
+function decreaseFontSize() {
+    gMeme.lines[0].size--
+    console.log('Service gMeme size:', gMeme.lines[0].size);
+}
+
+function createLine() {
+    gMeme.lines.push({
+        txt: 'NEW LINE',
+        size: 20,
+        color: 'blue',
+    })
+    gMeme.selectedLineIdx++
+    console.log('created new line', gMeme.lines);
 }

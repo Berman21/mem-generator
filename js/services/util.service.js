@@ -6,7 +6,7 @@ function coverCanvasWithImg(elImg) {
 function resizeCanvas() {                                          // Changing the canvas dimension clears the canvas
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.clientWidth-2
-    // gElCanvas.height = elContainer.clientHeight-2
+    gElCanvas.height = elContainer.clientHeight-2
     renderMeme()
 }
 
