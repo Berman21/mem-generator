@@ -28,11 +28,11 @@ var gMeme = {
 
 
 function setImg(img) {
-    gImgs = img
+    gImg = img
 }
 
 function getImg() {
-    return gImgs
+    return gImg
 }
 
 function getImages() {
@@ -73,6 +73,7 @@ function createLine() {
     // console.log('created new line', gMeme.lines);
 }
 
-// function switchLIne() {
-    // return gMeme.lines[gMeme.selectedImgId]
-// }
+function switchLIne() {
+    if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
+    else gMeme.selectedLineIdx++
+}
