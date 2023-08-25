@@ -11,3 +11,7 @@ function resizeCanvas() {                                          // Changing t
 }
 
 window.addEventListener('resize',resizeCanvas)
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
+}
