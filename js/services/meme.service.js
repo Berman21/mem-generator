@@ -44,25 +44,23 @@ function getMeme() {
     return gMeme
 }
 
-
-
-function setLineTxt(txt) {
-    gMeme.lines[0].txt = txt
-    console.log('Service gMeme text:', gMeme.lines[0].txt);
+function setLineTxt(txt,idx) {
+    gMeme.lines[idx].txt = txt
+    // console.log('Service gMeme text:', gMeme.lines[0].txt);
 }
 
-function setLineColor(val) {
-    gMeme.lines[0].color = val
+function setLineColor(val,idx) {
+    gMeme.lines[idx].color = val
 }
 
-function increaseFontSize() {
-    gMeme.lines[0].size++
-    console.log('Service gMeme size:', gMeme.lines[0].size);
+function increaseFontSize(idx) {
+    gMeme.lines[idx].size++
+    // console.log('Service gMeme size:', gMeme.lines[0].size);
 }
 
-function decreaseFontSize() {
-    gMeme.lines[0].size--
-    console.log('Service gMeme size:', gMeme.lines[0].size);
+function decreaseFontSize(idx) {
+    gMeme.lines[idx].size--
+    // console.log('Service gMeme size:', gMeme.lines[0].size);
 }
 
 function createLine() {
@@ -71,6 +69,10 @@ function createLine() {
         size: 20,
         color: 'blue',
     })
-    gMeme.selectedLineIdx++
-    console.log('created new line', gMeme.lines);
+    gMeme.selectedLineIdx = gMeme.lines.length-1
+    // console.log('created new line', gMeme.lines);
 }
+
+// function switchLIne() {
+    // return gMeme.lines[gMeme.selectedImgId]
+// }

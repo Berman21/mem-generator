@@ -22,7 +22,7 @@ function renderGallery() {
 
 function onImgSelect(elImg) {
     setImg(elImg)
-    renderMeme()
+    // renderMeme()
     const elEditor = document.querySelector('.editor-container')
     const elMainGallery = document.querySelector('.main-gallery-container')
     elEditor.classList.remove('hidden')
