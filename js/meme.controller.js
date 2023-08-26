@@ -1,12 +1,12 @@
 let gElCanvas
 let gCtx
 let gCurrMeme
-let gLines = []
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
+    createLine()
 }
 
 function renderMeme() {
@@ -17,19 +17,33 @@ function renderMeme() {
     coverCanvasWithImg(memeImg)
 
     lines.forEach((line, idx) => {
+
+
         const { txt, color, size } = line
         const txtLength = gCtx.measureText(txt)
-        
+
+        console.log(txtLength);
+
         line.x = gElCanvas.width / 2
         line.y = (idx + 1) * (line.size + txtSpace)
-
+        // console.log(line);
+        // console.log(line.x);
         const padding = 10
-        line.borderStartX = line.x - txtLength.width - padding
+        line.borderStartX = line.x - txtLength.width / 2
         line.borderStartY = line.y - size / 2 - padding
-        line.borderWidth = padding + txtLength.width * 2 + padding
+        line.borderWidth = txtLength.width
         line.borderHeight = size + padding * 2
         drawText(line.txt, line.color, line.size, line.x, line.y)
     })
+}
+
+// function onFlexible(){
+//     flexible()
+
+// }
+
+function onShare(){
+    onUploadImg()
 }
 
 function onSetLineTxt(val) {
@@ -59,14 +73,31 @@ function onCreateLine() {
 
 }
 
+function onDeleteLine() {
+    deleteLine(gCurrMeme.selectedLineIdx)
+    renderMeme()
+}
+
 function onSwitchLine() {
     const elInput = document.querySelector('.meme-text-input')
     switchLIne()
     renderMeme()
     const lines = gCurrMeme.lines
-    const { txt,borderStartX, borderStartY, borderWidth, borderHeight } = lines[gCurrMeme.selectedLineIdx]
+    const { txt, borderStartX, borderStartY, borderWidth, borderHeight } = lines[gCurrMeme.selectedLineIdx]
     elInput.value = txt
     drawBorder(borderStartX, borderStartY, borderWidth, borderHeight)
+}
+
+function onLeftALign() {
+    alignLeft()
+}
+
+function onCenterALign() {
+    alignCenter()
+}
+
+function onRightALign() {
+    alignRight()
 }
 
 function onLineClick(ev) {
@@ -86,7 +117,7 @@ function onLineClick(ev) {
     } else {
         renderMeme()
         gCurrMeme.selectedLineIdx = clickedLine
-        const { txt,borderStartX, borderStartY, borderWidth, borderHeight } = lines[clickedLine]
+        const { txt, borderStartX, borderStartY, borderWidth, borderHeight } = lines[clickedLine]
         elInput.value = txt
         drawBorder(borderStartX, borderStartY, borderWidth, borderHeight)
     }
@@ -96,7 +127,7 @@ function drawText(text, color, size, x, y) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = `${color}`
     gCtx.fillStyle = 'black'
-    gCtx.font = `${size}px Arial`
+    gCtx.font = `${size}px Impact`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 

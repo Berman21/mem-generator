@@ -63,17 +63,22 @@
                 <article class="item btns">
                     <button onclick="onCreateLine()">+</button>
                     <button onclick="onSwitchLine()">Switch</button>
-                    <button>DELETE</button>
+                    <button onclick="onDeleteLine()">DELETE</button>
                 </article>
 
 
                 <article class="item text">
                     <button onclick="onIncreaseFontSize()">A+</button>
                     <button onclick="onDecreaseFontSize()">A-</button>
-                    <button>LEFT</button>
-                    <button>CENT</button>
-                    <button>RIGHT</button>
-                    <button class="font">FONT</button>
+                    <button onclick="onLeftAlign()">LEFT</button>
+                    <button onclick="onCenterAlign()">CENT</button>
+                    <button onclick="onRightAlign()">RIGHT</button>
+                    <!-- <button class="font">FONT</button> -->
+                    <select class="font" id="">
+                        <option value="">IMPACT</option>
+                        <option value="">Ariel</option>
+                        <option value="">Times new Roman</option>
+                    </select>
                     <button>S</button>
                     <input type="color" class="color-picker" oninput="onSetLineColor(this.value)">
                 </article>
@@ -81,7 +86,7 @@
                 <article class="item stickers">cOMING SOON</article>
 
                 <article class="item share">
-                    <button>SHARE</button>
+                    <button onclick="onShare()">SHARE</button>
                     <button> <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
                     </button>
                 </article>
