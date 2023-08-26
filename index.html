@@ -11,7 +11,7 @@
 
 <body onload="onInit()">
 
-    <header class="main-header main-layout full">
+    <header class="main-header main-layout">
         <div class="header-contnet flex space-between align-center">
             <div class="logo">MemeX</div>
             <nav class="main-nav-container">
@@ -28,7 +28,7 @@
 
         <div class="main-gallery-container">
 
-            <section class="search-container flex space-between">
+            <section class="search-container">
                 <input data-trans="search-input" type="text" class="search-input" placeholder="Search">
                 <ul class="filter flex clean-list">
                     <li><a href="#">funny</a></li>
@@ -46,7 +46,7 @@
 
         </div>
 
-        <section class="editor-container flex">
+        <section class="editor-container">
 
             <div class="canvas-container">
                 <canvas class="main-canvas" onclick="onLineClick(event)"></canvas>
@@ -55,17 +55,36 @@
 
             <div class="controls-container">
 
+                <article class="item input">
+                    <input data-trans="line-input" type="text" class="meme-text-input"
+                        oninput="onSetLineTxt(this.value)" placeholder="add a line">
+                </article>
 
-                <input data-trans="line-input" type="text" class="meme-text-input" oninput="onSetLineTxt(this.value)"
-                    placeholder="add a line">
+                <article class="item btns">
+                    <button onclick="onCreateLine()">+</button>
+                    <button onclick="onSwitchLine()">Switch</button>
+                    <button>DELETE</button>
+                </article>
 
-                <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
 
-                <input type="color" class="color-picker" oninput="onSetLineColor(this.value)">
-                <button onclick="onIncreaseFontSize()">A+</button>
-                <button onclick="onDecreaseFontSize()">A-</button>
-                <button onclick="onCreateLine()">+</button>
-                <button onclick="onSwitchLine()">Switch</button>
+                <article class="item text">
+                    <button onclick="onIncreaseFontSize()">A+</button>
+                    <button onclick="onDecreaseFontSize()">A-</button>
+                    <button>LEFT</button>
+                    <button>CENT</button>
+                    <button>RIGHT</button>
+                    <button class="font">FONT</button>
+                    <button>S</button>
+                    <input type="color" class="color-picker" oninput="onSetLineColor(this.value)">
+                </article>
+
+                <article class="item stickers">cOMING SOON</article>
+
+                <article class="item share">
+                    <button>SHARE</button>
+                    <button> <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
+                    </button>
+                </article>
             </div>
 
 
@@ -73,7 +92,7 @@
 
     </main>
 
-    <footer>
+    <footer class="main-footer">
         footer
     </footer>
 

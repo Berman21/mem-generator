@@ -1,0 +1,84 @@
+/* EDITOR LAYOUT */
+
+*{
+    box-sizing: border-box;
+}
+
+.editor-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    gap: 5vw;
+
+    margin: 0 5vw;
+    margin-block-end: 1.8em;
+}
+
+.controls-container{
+    background-color: var(--clrPrimaryBase);
+    border-radius: 15px;
+
+    padding: 24px 40px;
+
+}
+
+.canvas-container {
+    background-color: var(--clrPrimaryBase);
+    border-radius: 1em;
+}
+
+.canvas-container canvas{
+    /* background-color: var(--clrPrimaryBase); */
+    border-radius: 1em;
+}
+
+.controls-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 3fr minmax(1fr,2fr) 1fr;
+    gap: 3vh;
+
+    padding: 3vh 3vw;
+    background-color: var(--clrPrimaryBase);
+    border-radius: 1em;
+}
+
+.text {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: space-between;
+    row-gap: 2vh;
+    column-gap: 1vw;
+    padding: 1vw;
+}
+
+.controls-container input{
+    height: 100%;
+    width: 100%;
+    border-radius: 50em;
+    text-align: center;
+    font-size: 2em;
+}
+
+.btns{
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 1vw;
+    padding: 0 8vw;
+}
+
+button {
+    border-radius: 1em;
+    height: 100%;
+}
+
+.font {
+    grid-column: span 3;
+}
+
+.share{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1vw;
+}
