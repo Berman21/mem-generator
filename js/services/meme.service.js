@@ -44,26 +44,20 @@ var gImgs = [
     { id: 43, url: 'images/dogs.jpg', keywords: ['funny', 'cat'] }
 ]
 
-var gLines = ['aaaa','bbbb','ccccc','dddddd']
+var gLines = ['aaaa', 'bbbb', 'ccccc', 'dddddd']  // for flexible
 
 var gImg
 
 var gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
-    lines: [
-        // {
-        //     txt: 'a',
-        //     size: 50,
-        //     color: 'white',
-        // }
-    ]
+    lines: []
 }
 
-function flexible(){
-    let randIdx = getRandomIntInclusive(0,gImgs.length)
+function flexible() {
+    let randIdx = getRandomIntInclusive(0, gImgs.length)
     gImg = gImgs[randIdx].url
-    randIdx = getRandomIntInclusive(0,gLines.length)
+    randIdx = getRandomIntInclusive(0, gLines.length)
     const randLine = gLines[randIdx]
     createLine(randLine)
 }
@@ -103,22 +97,43 @@ function decreaseFontSize(idx) {
     // console.log('Service gMeme size:', gMeme.lines[0].size);
 }
 
-function createLine(txt = 'NEW LINE') {
+function createLine(txt = 'NEW LINE',size = 50, color = 'white',align = 'center',font = 'Impact') {
     gMeme.lines.push({
         txt,
-        size: 50,
-        color: 'white',
+        size,
+        color,
+        x: null,
+        y: null,
+        align,
+        font
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     // console.log('created new line', gMeme.lines);
 }
 
-function deleteLine(idx){
-    gMeme.lines.splice(idx,1)
+function deleteLine(idx) {
+    gMeme.lines.splice(idx, 1)
     gMeme.selectedLineIdx--
 }
 
 function switchLIne() {
     if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
     else gMeme.selectedLineIdx++
+}
+
+function alignLeft(idx){
+    gMeme.lines[idx].align = 'right'
+}
+
+function alignCenter(idx){
+    gMeme.lines[idx].align = 'center'
+}
+
+function alignRight(idx){
+    gMeme.lines[idx].align = 'left'
+}
+
+function selectFont(font,idx){
+    console.log(font);
+    gMeme.lines[idx].font = font
 }

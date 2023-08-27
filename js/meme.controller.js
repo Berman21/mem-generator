@@ -1,6 +1,7 @@
 let gElCanvas
 let gCtx
 let gCurrMeme
+let gCurrLineIdx
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -12,58 +13,48 @@ function onInit() {
 function renderMeme() {
     const memeImg = getImg()
     gCurrMeme = getMeme()
+    gCurrLineIdx = gCurrMeme.selectedLineIdx
     const lines = gCurrMeme.lines
     const txtSpace = 25
     coverCanvasWithImg(memeImg)
 
     lines.forEach((line, idx) => {
+        let { txt, color, size, x, y, align, font } = line
 
+        x = gElCanvas.width / 2
+        y = (idx + 1) * (size + txtSpace)
 
-        const { txt, color, size } = line
+        drawText(txt, color, size, x, y, align, font)
         const txtLength = gCtx.measureText(txt)
 
-        console.log(txtLength);
-
-        line.x = gElCanvas.width / 2
-        line.y = (idx + 1) * (line.size + txtSpace)
-        // console.log(line);
-        // console.log(line.x);
         const padding = 10
-        line.borderStartX = line.x - txtLength.width / 2
-        line.borderStartY = line.y - size / 2 - padding
-        line.borderWidth = txtLength.width
+        line.borderStartX = x - txtLength.width / 2 - padding
+        line.borderStartY = y - size / 2 - padding
+        line.borderWidth = txtLength.width + padding * 2
         line.borderHeight = size + padding * 2
-        drawText(line.txt, line.color, line.size, line.x, line.y)
+        drawText(txt, color, size, x, y, align, font)
     })
 }
 
-// function onFlexible(){
-//     flexible()
-
-// }
-
-function onShare(){
-    onUploadImg()
-}
 
 function onSetLineTxt(val) {
-    setLineTxt(val, gCurrMeme.selectedLineIdx)
+    setLineTxt(val, gCurrLineIdx)
     renderMeme()
 }
 
 function onSetLineColor(val) {
     console.log(val);
-    setLineColor(val, gCurrMeme.selectedLineIdx)
+    setLineColor(val, gCurrLineIdx)
     renderMeme()
 }
 
 function onIncreaseFontSize() {
-    increaseFontSize(gCurrMeme.selectedLineIdx)
+    increaseFontSize(gCurrLineIdx)
     renderMeme()
 }
 
 function onDecreaseFontSize() {
-    decreaseFontSize(gCurrMeme.selectedLineIdx)
+    decreaseFontSize(gCurrLineIdx)
     renderMeme()
 }
 
@@ -88,17 +79,45 @@ function onSwitchLine() {
     drawBorder(borderStartX, borderStartY, borderWidth, borderHeight)
 }
 
-function onLeftALign() {
-    alignLeft()
+// function onFlexible(){
+//     flexible()
+
+// }
+
+function onUpload() {
+    uploadImg()
 }
 
-function onCenterALign() {
-    alignCenter()
+function onDownloadCanvas(elLink) {
+    downloadCanvas(elLink)
 }
 
-function onRightALign() {
-    alignRight()
+function onShare() {
+    uploadImg()
 }
+
+function onAlignLeft() {
+    alignLeft(gCurrLineIdx)
+    renderMeme()
+}
+
+function onAlignCenter() {
+    alignCenter(gCurrLineIdx)
+    renderMeme()
+}
+
+function onAlignRight() {
+    alignRight(gCurrLineIdx)
+    renderMeme()
+}
+
+// function onSelectFont() {
+//     const elFont = document.getElementById('font')
+//     const font = elFont.value
+//     console.log(font);
+//     onSelectFont(font, gCurrLineIdx)
+//     renderMeme()
+// }
 
 function onLineClick(ev) {
     const elInput = document.querySelector('.meme-text-input')
@@ -116,19 +135,19 @@ function onLineClick(ev) {
         renderMeme()
     } else {
         renderMeme()
-        gCurrMeme.selectedLineIdx = clickedLine
+        gCurrLineIdx = clickedLine
         const { txt, borderStartX, borderStartY, borderWidth, borderHeight } = lines[clickedLine]
         elInput.value = txt
         drawBorder(borderStartX, borderStartY, borderWidth, borderHeight)
     }
 }
 
-function drawText(text, color, size, x, y) {
+function drawText(text, color, size, x, y, align, font) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = `${color}`
-    gCtx.fillStyle = 'black'
-    gCtx.font = `${size}px Impact`
-    gCtx.textAlign = 'center'
+    gCtx.strokeStyle = 'black'
+    gCtx.fillStyle = `${color}`
+    gCtx.font = `${size}px ${font}`
+    gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
 
 
@@ -142,11 +161,3 @@ function drawBorder(x, y, xEnd, yEnd) {
     gCtx.strokeRect(x, y, xEnd, yEnd)
 }
 
-function downloadCanvas(elLink) {
-    const dataUrl = gElCanvas.toDataURL()
-    console.log('dataUrl', dataUrl)
-
-    elLink.href = dataUrl
-    // Set a name for the downloaded file
-    elLink.download = 'my-img'
-}

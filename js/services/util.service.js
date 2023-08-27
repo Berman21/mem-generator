@@ -1,4 +1,5 @@
 function coverCanvasWithImg(elImg) {
+    
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width // changing the canvas height
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height) // Lets cover a fixed-width canvas using an img
 }
@@ -6,7 +7,7 @@ function coverCanvasWithImg(elImg) {
 function resizeCanvas() {                                          // Changing the canvas dimension clears the canvas
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.clientWidth - 2
-    // gElCanvas.height = elContainer.clientHeight
+    // gElCanvas.height = elContainer.clientHeight - 2
     renderMeme()
 }
 
@@ -31,7 +32,16 @@ function loadFromStorage(key) {
     return JSON.parse(val)
 }
 
-function onUploadImg() {
+function downloadCanvas(elLink) {
+    const dataUrl = gElCanvas.toDataURL()
+    console.log('dataUrl', dataUrl)
+
+    elLink.href = dataUrl
+    // Set a name for the downloaded file
+    elLink.download = 'my-img'
+}
+
+function uploadImg() {
     // Gets the image from the canvas
     const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
 

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MemeX</title>
     <link rel="stylesheet" href="css/styles.css" />
-
 </head>
 
 <body onload="onInit()">
@@ -70,14 +69,14 @@
                 <article class="item text">
                     <button onclick="onIncreaseFontSize()">A+</button>
                     <button onclick="onDecreaseFontSize()">A-</button>
-                    <button onclick="onLeftAlign()">LEFT</button>
-                    <button onclick="onCenterAlign()">CENT</button>
-                    <button onclick="onRightAlign()">RIGHT</button>
+                    <button onclick="onAlignLeft()">LEFT</button>
+                    <button onclick="onAlignCenter()">CENT</button>
+                    <button onclick="onAlignRight()">RIGHT</button>
                     <!-- <button class="font">FONT</button> -->
-                    <select class="font" id="">
-                        <option value="">IMPACT</option>
-                        <option value="">Ariel</option>
-                        <option value="">Times new Roman</option>
+                    <select class="font" id="font">
+                        <option value="Impact">IMPACT</option>
+                        <option value="ariel" >Ariel</option>
+                        <option value="times new Roman">Times new Roman</option>
                     </select>
                     <button>S</button>
                     <input type="color" class="color-picker" oninput="onSetLineColor(this.value)">
@@ -86,9 +85,15 @@
                 <article class="item stickers">cOMING SOON</article>
 
                 <article class="item share">
-                    <button onclick="onShare()">SHARE</button>
-                    <button> <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
+
+                    <button >
+                        <a href="#" onclick="onUpload()">Share</a>
                     </button>
+
+                    <button>
+                        <a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
+                    </button>
+
                 </article>
             </div>
 
