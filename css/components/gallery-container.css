@@ -27,7 +27,7 @@
 .filter{
     display: flex;
     justify-content: space-evenly;
-
+    
     list-style: none;
 }
 
@@ -36,8 +36,12 @@
     align-items: center;
     height: 100%;
     margin: 0;
-
     border-radius: 50em;
+}
+
+.filter a{
+    color: var(--clrPrimary-1);
+    text-decoration: none;
 }
 
 .search-container button{
@@ -59,6 +63,7 @@
     padding:25px 25px 25px;
 }
 
+.saved-memes-container,
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

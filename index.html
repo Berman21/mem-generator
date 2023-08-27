@@ -15,7 +15,8 @@
             <div class="logo">MemeX</div>
             <nav class="main-nav-container">
                 <ul class="main-nav clean-list">
-                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#" onclick="renderGallery()">Gallery</a></li>
+                    <li><a href="#" onclick="onFlexible()">Flexible</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </nav>
@@ -33,7 +34,7 @@
                     <li><a href="#">funny</a></li>
                     <li><a href="#">animals</a></li>
                     <li><a href="#">Men</a></li>
-                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Kids</a></li>
                 </ul>
 
                 <button>More</button>
@@ -45,7 +46,7 @@
 
         </div>
 
-        <section class="editor-container">
+        <section class="editor-container hidden">
 
             <div class="canvas-container">
                 <canvas class="main-canvas" onclick="onLineClick(event)"></canvas>
@@ -60,8 +61,8 @@
                 </article>
 
                 <article class="item btns">
-                    <button onclick="onCreateLine()">+</button>
-                    <button onclick="onSwitchLine()">Switch</button>
+                    <button onclick="onCreateLine()">New Line</button>
+                    <button onclick="onSwitchLine()">Switch Lines</button>
                     <button onclick="onDeleteLine()">DELETE</button>
                 </article>
 
@@ -75,18 +76,18 @@
                     <!-- <button class="font">FONT</button> -->
                     <select class="font" id="font">
                         <option value="Impact">IMPACT</option>
-                        <option value="ariel" >Ariel</option>
+                        <option value="ariel">Ariel</option>
                         <option value="times new Roman">Times new Roman</option>
                     </select>
                     <button>S</button>
                     <input type="color" class="color-picker" oninput="onSetLineColor(this.value)">
                 </article>
 
-                <article class="item stickers">cOMING SOON</article>
+                <article class="item stickers"></article>
 
-                <article class="item share">
+                <article class="item export">
 
-                    <button >
+                    <button class="share">
                         <a href="#" onclick="onUpload()">Share</a>
                     </button>
 

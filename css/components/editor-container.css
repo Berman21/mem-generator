@@ -46,11 +46,13 @@
 
 .text {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5,1fr) ;
     justify-items: space-between;
     row-gap: 2vh;
     column-gap: 1vw;
     padding: 1vw;
+    border-radius: 1em;
+    background-color: var(--clrSecondaryBase);
 }
 
 .controls-container input{
@@ -63,22 +65,43 @@
 
 .btns{
     display: grid;
-    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1vw;
     padding: 0 8vw;
 }
 
+
+
 button {
     border-radius: 1em;
     height: 100%;
+    width: 100%;
+    font-family: Poppins;
+    background-color: var(--clrPrimary-2);
+    box-shadow: 0px 5px 5px rgba(92, 92, 92, 0.55);
 }
+
 
 .font {
     grid-column: span 3;
 }
 
-.share{
+.export{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1vw;
 }
+
+.export button:first-child{
+    background-color: var(--clrShare);
+}
+
+.export button:last-child {
+    background-color: var(--clrDownload);
+}
+
+.export > * a {
+    color: var(--clrPrimary-1);
+    text-decoration: none;
+}
+

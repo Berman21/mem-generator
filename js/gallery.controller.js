@@ -17,7 +17,7 @@ function renderGallery() {
     }
     elEditor.classList.add('hidden')
     elMainGallery.classList.remove('hidden')
-    // resizeCanvas()
+
 }
 
 function onImgSelect(elImg) {

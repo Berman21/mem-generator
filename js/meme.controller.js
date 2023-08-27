@@ -79,10 +79,12 @@ function onSwitchLine() {
     drawBorder(borderStartX, borderStartY, borderWidth, borderHeight)
 }
 
-// function onFlexible(){
-//     flexible()
-
-// }
+function onFlexible() {
+    // console.log('hi');
+    // flexible()
+    // onImgSelect(elImg)
+    // renderMeme()
+}
 
 function onUpload() {
     uploadImg()

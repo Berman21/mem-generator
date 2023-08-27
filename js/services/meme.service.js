@@ -44,6 +44,8 @@ var gImgs = [
     { id: 43, url: 'images/dogs.jpg', keywords: ['funny', 'cat'] }
 ]
 
+var gSavedMemes = []
+
 var gLines = ['aaaa', 'bbbb', 'ccccc', 'dddddd']  // for flexible
 
 var gImg
@@ -54,15 +56,17 @@ var gMeme = {
     lines: []
 }
 
-function flexible() {
-    let randIdx = getRandomIntInclusive(0, gImgs.length)
-    gImg = gImgs[randIdx].url
-    randIdx = getRandomIntInclusive(0, gLines.length)
-    const randLine = gLines[randIdx]
-    createLine(randLine)
-}
+// function flexible() {
+//     let randIdx = getRandomIntInclusive(0, gImgs.length)
+//     const Img = 
+//     setImg(Img)
+//     randIdx = getRandomIntInclusive(0, gLines.length)
+//     const randLine = gLines[randIdx]
+//     createLine(randLine)
+// }
 
 function setImg(img) {
+    console.log(img);
     gImg = img
 }
 
@@ -137,3 +141,12 @@ function selectFont(font,idx){
     console.log(font);
     gMeme.lines[idx].font = font
 }
+
+// function saveMeme(meme,imgUrl){
+    
+//     gSavedMemes.push(savedMeme)
+// }
+
+// function getSavedMemes(){
+//     return gSavedMemes
+// }
