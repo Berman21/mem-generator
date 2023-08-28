@@ -81,7 +81,7 @@ function onSwitchLine() {
 
 function onFlexible() {
     // console.log('hi');
-    // flexible()
+    flexible()
     // onImgSelect(elImg)
     // renderMeme()
 }

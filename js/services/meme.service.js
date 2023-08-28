@@ -56,14 +56,14 @@ var gMeme = {
     lines: []
 }
 
-// function flexible() {
-//     let randIdx = getRandomIntInclusive(0, gImgs.length)
-//     const Img = 
-//     setImg(Img)
-//     randIdx = getRandomIntInclusive(0, gLines.length)
-//     const randLine = gLines[randIdx]
-//     createLine(randLine)
-// }
+function flexible() {
+    let randIdx = getRandomIntInclusive(0, gImgs.length)
+    const Img = `<img src=${gImgs[randIdx].url}>`
+    setImg(Img)
+    // randIdx = getRandomIntInclusive(0, gLines.length)
+    // const randLine = gLines[randIdx]
+    // createLine(randLine)
+}
 
 function setImg(img) {
     console.log(img);

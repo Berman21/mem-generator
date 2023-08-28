@@ -21,6 +21,7 @@ function renderGallery() {
 }
 
 function onImgSelect(elImg) {
+    console.log(elImg);
     setImg(elImg)
     // renderMeme()
     const elEditor = document.querySelector('.editor-container')
